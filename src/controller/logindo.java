@@ -15,7 +15,7 @@ public class logindo extends HttpServlet {
         //接收客户端的请求
         String userName = request.getParameter("username");
         String passWord = request.getParameter("password");
-
+        //sasa
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
