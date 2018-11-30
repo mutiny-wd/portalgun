@@ -96,11 +96,11 @@
             <form id="loginform" method="post" action="/LoginController">
                 <div class="form-group" id="EmailBox">
                     <label for="Email">Email address/User</label><span id="hintEmail"></span>
-                    <input type="email" class="form-control " id="Email" placeholder="Email/User">
+                    <input type="email" class="form-control " id="Email" name="Email" placeholder="Email/User">
                 </div>
                 <div class="form-group" id="PasswordBox">
                     <label for="Password">Password</label><span id="hintPassword"></span>
-                    <input type="password" class="form-control" id="Password" placeholder="Password">
+                    <input type="password" class="form-control" id="Password" name="Password" placeholder="Password">
                 </div>
                 <div class="checkbox">
                     <label>

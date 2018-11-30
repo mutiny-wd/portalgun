@@ -13,9 +13,8 @@ public class logindo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         //接收客户端的请求
-        String userName = request.getParameter("username");
-        String passWord = request.getParameter("password");
-        //sasa
+        String email = request.getParameter("Email");
+        String password = request.getParameter("Password");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
