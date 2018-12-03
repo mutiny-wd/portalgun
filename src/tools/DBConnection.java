@@ -5,45 +5,45 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    public static final String DBDRIVER="com.mysql.jdbc.Driver";
-    public static final String DBURL="jdbc:mysql://localhost:3306/?useUnicode=true&characterEncoding=utf-8";
-    public static final String DBUSER="root";
-    public static final String DBPASSWORD="wD980304";
-    private Connection conn=null;
+    private static final String DBURL="jdbc:mysql://localhost:3306/portalgun?useUnicode=true&characterEncoding=utf-8";
+    private static final String DBUSER="root";
+    private static final String DBPASSWORD="wD980304";
+    private static final String DRIVER="com.mysql.jdbc.Driver";
+    private static Connection con ;
 
-    public DBConnection()
-    {
-        //加载驱动
+    //加载驱动，建立连接
+    public DBConnection(){
         try {
-            Class.forName(DBDRIVER);
+            Class.forName(DRIVER);
         } catch (ClassNotFoundException e) {
+            System.out.println("JDBC驱动错误");
             e.printStackTrace();
         }
-
-        //建立连接
         try {
-            conn= DriverManager.getConnection(DBURL,DBUSER,DBPASSWORD);
+            con = DriverManager.getConnection(DBURL,DBUSER,DBPASSWORD);
         } catch (SQLException e) {
+            System.out.println("JDBC连接字符串错误");
             e.printStackTrace();
         }
     }
 
-    //获取连接对象
-    public Connection getConnection()
+    //获取连接
+    public static Connection getConnection()
     {
-        return this.conn;
+        return con;
     }
 
-    //关闭连接对象
-    public void close()
+    //关闭连接
+    public static void disConnection()
     {
-        if(this.conn!=null) {
+        if(con!=null)
             try {
-                this.conn.close();
+                con.close();
             } catch (SQLException e) {
+                System.out.println("关闭连接错误");
                 e.printStackTrace();
             }
-        }
     }
 
 }
+
