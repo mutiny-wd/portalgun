@@ -40,3 +40,8 @@ $("#Password").blur(function () {
     }
 })
 
+var errori ='<%=request.getParameter("error")%>';
+if(errori=='yes'){
+    alert("登录失败!");
+}
+
