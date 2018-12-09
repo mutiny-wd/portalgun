@@ -1,4 +1,4 @@
-<%--
+<%@ page import="javax.sound.midi.SysexMessage" %><%--
   Created by IntelliJ IDEA.
   User: mutiny
   Date: 2018/12/8
@@ -14,6 +14,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 </head>
 <body>
+<%
+    String success=(String)request.getSession().getAttribute("success");
+    String user=(String)request.getAttribute("currentUser");
+    System.out.println(success);
+    if("y".equals(success))
+        out.println("<script>$('#user').text();</script>");// TODO: 2018/12/9 待解决 登录成功后改变#user
+%>
 <div id="container">
     <%--头部--%>
     <div id="header" class="container-fluid">
@@ -26,7 +33,7 @@
                 <%--栅格系统3-6-3--%>
                 <div class="row">
                     <div class="col-md-3 text-left">Portalgun</div>
-                    <div class="col-md-6 text-center">新用户请注册</div>
+                    <div class="col-md-6 text-center" id="user">新用户请注册</div>
                     <div class="col-md-3 text-right"></div>
 
                 </div>
@@ -53,8 +60,8 @@
 
                         <%--导航栏左边--%>
                         <ul class="nav navbar-nav">
-                            <li><a href="#">主站</a></li>
-                            <li><a href="#">登录</a></li>
+                            <li><a href="/main.jsp">主站</a></li>
+                            <li><a href="/login.jsp">登录</a></li>
                         </ul>
 
                         <%--导航栏右边--%>

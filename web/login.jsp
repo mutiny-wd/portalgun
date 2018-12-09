@@ -19,6 +19,8 @@
     String info=(String)request.getAttribute("error");
     if("账号密码错误".equals(info))
         out.println("<script>alert('账号密码错误');</script>");
+    if("注册成功".equals(info))
+        out.println("<script>alert('账号注册成功');</script>");
 %>
 <div id="container">
     <%--头部--%>
@@ -59,8 +61,8 @@
 
                         <%--导航栏左边--%>
                         <ul class="nav navbar-nav">
-                            <li><a href="#">主站</a></li>
-                            <li><a href="#">登录</a></li>
+                            <li><a href="/main.jsp">主站</a></li>
+                            <li><a href="/login.jsp">登录</a></li>
                         </ul>
 
                         <%--导航栏右边--%>

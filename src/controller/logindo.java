@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.swing.*;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,7 +36,13 @@ public class logindo extends HttpServlet {
         flag = user.doLogin(email,password);
         if (flag)//登录成功
         {
-            request.getRequestDispatcher("welcome.jsp").forward(request, response);
+
+            HttpSession session=request.getSession();
+            session.setAttribute("success","y");
+            request.setAttribute("currentUser",user.getName(email));
+            RequestDispatcher rd=request.getRequestDispatcher("/main.jsp");
+            rd.forward(request,response);
+            response.sendRedirect("/main.jsp");
         }
         else//登录失败
         {

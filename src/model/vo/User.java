@@ -6,7 +6,7 @@ public class User {
     public String UserEmail;
     public String UserPassWord;
     public String UserNumber;
-    public byte UserSex;
+    public boolean UserSex;
 
     public int getID() {
         return ID;
@@ -48,15 +48,15 @@ public class User {
         UserNumber = userNumber;
     }
 
-    public byte getUserSex() {
+    public boolean getUserSex() {
         return UserSex;
     }
 
-    public void setUserSex(byte userSex) {
+    public void setUserSex(boolean userSex) {
         UserSex = userSex;
     }
 
-    public User(String userName, String userEmail, String userPassWord, String userNumber, byte userSex) {
+    public User(String userName, String userEmail, String userPassWord, String userNumber, boolean userSex) {
         UserName = userName;
         UserEmail = userEmail;
         UserPassWord = userPassWord;

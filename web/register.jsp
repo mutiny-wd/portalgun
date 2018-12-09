@@ -14,6 +14,11 @@
     <link rel="stylesheet" type="text/css" href="/css/register.css">
 </head>
 <body>
+<%
+    String info=(String)request.getAttribute("error");
+    if("已存在用户名或邮箱".equals(info))
+        out.println("<script>alert('已存在用户名或邮箱');</script>");
+%>
 <div id="container">
     <%--头部--%>
     <div id="header" class="container-fluid">
@@ -53,8 +58,8 @@
 
                         <%--导航栏左边--%>
                         <ul class="nav navbar-nav">
-                            <li><a href="#">主站</a></li>
-                            <li><a href="#">登录</a></li>
+                            <li><a href="/main.jsp">主站</a></li>
+                            <li><a href="/login.jsp">登录</a></li>
                         </ul>
 
                         <%--导航栏右边--%>
@@ -94,15 +99,15 @@
                 <div id="RegisterBlock" class="text-left " >
                     <div class="form-group">
                         <label for="Email">创建你的邮箱</label><span id="hintEmail"></span>
-                        <input type="email" class="form-control" id="Email" placeholder="Email">
+                        <input type="email" class="form-control" id="Email" name="Email" placeholder="Email">
                     </div>
                     <div class="form-group">
                         <label for="Name">用户名</label><span id="hintName"></span>
-                        <input type="text" class="form-control" id="Name" placeholder="Name">
+                        <input type="text" class="form-control" id="Name" name="Name" placeholder="Name">
                     </div>
                     <div class="form-group">
                         <label for="Password">输入密码</label><span id="hintPassword"></span>
-                        <input type="password" class="form-control" id="Password" placeholder="Password">
+                        <input type="password" class="form-control" id="Password" name="Password" placeholder="Password">
                     </div>
                     <div class="form-group">
                         <label for="RPassword">重复输入密码</label><span id="hintRPassword"></span>
@@ -110,7 +115,7 @@
                     </div>
                     <div class="form-group">
                         <label for="Number">你的手机号码</label><span id="hintNumber"></span>
-                        <input type="text" class="form-control" id="Number" placeholder="PhoneNumber">
+                        <input type="text" class="form-control" id="Number" name="Number" placeholder="PhoneNumber">
                     </div>
                     <!--性别-->
                     <div class="radio">
