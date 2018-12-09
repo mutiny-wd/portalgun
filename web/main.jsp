@@ -1,25 +1,19 @@
 <%--
   Created by IntelliJ IDEA.
   User: mutiny
-  Date: 2018/11/13
-  Time: 9:27
+  Date: 2018/12/8
+  Time: 14:33
   To change this template use File | Settings | File Templates.
 --%>
-<!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-    <title>login page</title>
+    <title>Portalgun</title>
     <link rel="stylesheet" type="text/css" href="/lib/bootstrap3.3.7/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 </head>
 <body>
-<%
-    String info=(String)request.getAttribute("error");
-    if("账号密码错误".equals(info))
-        out.println("<script>alert('账号密码错误');</script>");
-%>
 <div id="container">
     <%--头部--%>
     <div id="header" class="container-fluid">
@@ -93,31 +87,41 @@
         <div id="left" class="col-md-2">
 
         </div>
-        <%--登录主窗口--%>
+        <%--主窗口--%>
         <div id="center" class="col-md-8">
-            <div id="login">登&nbsp;&nbsp;&nbsp;录</div>
-            <div id="picture"></div>
-            <div class="division"></div>
-            <form id="loginform" method="post" action="/LoginController">
-                <div class="form-group" id="EmailBox">
-                    <label for="Email">Email address/User</label><span id="hintEmail" style="color: red;margin-left: 100px">${info}</span>
-                    <input type="email" class="form-control " id="Email" name="Email" placeholder="Email/User">
+            <%--轮播图--%>
+            <div class="slideBox">
+                <ul>
+                    <li><img src="/img/main/s5.jpg" alt="" width="942" height="300"/></li>
+                    <li><img src="/img/main/s4.jpg" alt="" width="942" height="300"/></li>
+                    <li><img src="/img/main/s3.jpg" alt="" width="942" height="300"/></li>
+                    <li><img src="/img/main/s6.jpg" alt="" width="942" height="300"/></li>
+                    <li><img src="/img/main/s2.jpg" alt="" width="942" height="300"/></li>
+                    <li><img src="/img/main/s1.jpg" alt="" width="942" height="300"/></li>
+                </ul>
+                <div class="spanBox">
+                    <span class="active">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
                 </div>
-                <div class="form-group" id="PasswordBox">
-                    <label for="Password">Password</label><span id="hintPassword"></span>
-                    <input type="password" class="form-control" id="Password" name="Password" placeholder="Password">
+                <div class="prev"><img src="/img/main/back_alt.png" width="15" height="50" alt=""/></div>
+                <div class="next"><img src="/img/main/forward_alt.png" width="15" height="50" alt=""/></div>
+            </div>
+            <%--板块--%>
+            <div id="article">
+                <div id="model1" class="model">
+                    <div class="name">科技</div>
                 </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox"> Check me out
-                    </label>
+                <div id="model2" class="model">
+                    <div class="name">科技</div>
                 </div>
-                <div id="LoginBlock" class="text-right">
-                    <input type="submit" id="butt" class="btn btn-success btn-lg" value="登录">
-                    <a type="button" class="btn btn-info btn-lg" href="/register.jsp">注册</a>
+                <div id="model3" class="model">
+                    <div class="name">科技</div>
                 </div>
-
-            </form>
+            </div>
         </div>
         <%--右边栏--%>
         <div id="right" class="col-md-2">
@@ -139,4 +143,4 @@
 </html>
 <script src="/lib/jquery3.3.1/jquery-3.3.1.js" type="text/javascript"></script>
 <script src="/lib/bootstrap3.3.7/js/bootstrap.js" type="text/javascript"></script>
-<script src="/js/login.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>

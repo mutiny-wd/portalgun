@@ -39,9 +39,3 @@ $("#Password").blur(function () {
         $("#hintPassword").html("");
     }
 })
-
-var errori ='<%=request.getParameter("error")%>';
-if(errori=='yes'){
-    alert("登录失败!");
-}
-

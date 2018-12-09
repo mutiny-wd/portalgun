@@ -9,7 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
 
 @WebServlet(name = "LoginController",urlPatterns = "/LoginController")
@@ -37,7 +39,10 @@ public class logindo extends HttpServlet {
         }
         else//登录失败
         {
-            response.sendRedirect("login.jsp?error=yes");
+            request.setAttribute("error","账号密码错误");
+            RequestDispatcher rd=request.getRequestDispatcher("/login.jsp");
+            rd.forward(request,response);
+            response.sendRedirect("/login.jsp");
         }
 
     }
